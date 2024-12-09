@@ -214,7 +214,7 @@ class StyleControllerWeb implements StyleController {
             url: source.url,
             coordinates: source.coordinates
                 .map(
-                  (e) => [e.lng, e.lat],
+                  (e) => [e.lon, e.lat],
                 )
                 .toList(growable: false)
                 .jsify()!,
@@ -228,7 +228,7 @@ class StyleControllerWeb implements StyleController {
             urls: source.urls.jsify()!,
             coordinates: source.coordinates
                 .map(
-                  (e) => [e.lng, e.lat],
+                  (e) => [e.lon, e.lat],
                 )
                 .toList(growable: false)
                 .jsify()!,

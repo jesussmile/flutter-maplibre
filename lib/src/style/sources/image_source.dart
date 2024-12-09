@@ -20,5 +20,5 @@ final class ImageSource extends Source {
   final String url;
 
   /// Corners of image specified in longitude, latitude pairs.
-  final List<Position> coordinates;
+  final List<Geographic> coordinates;
 }

@@ -88,21 +88,21 @@ final class MapLibreMapStateWeb extends MapLibreMapState {
         _map.on(
           interop.MapEventType.click,
           (interop.MapMouseEvent event) {
-            final point = event.lngLat.toPosition();
+            final point = event.lngLat.toGeographic();
             widget.onEvent?.call(MapEventClick(point: point));
           }.toJS,
         );
         _map.on(
           interop.MapEventType.dblclick,
           (interop.MapMouseEvent event) {
-            final point = event.lngLat.toPosition();
+            final point = event.lngLat.toGeographic();
             widget.onEvent?.call(MapEventDoubleClick(point: point));
           }.toJS,
         );
         _map.on(
           interop.MapEventType.contextmenu,
           (interop.MapMouseEvent event) {
-            final point = event.lngLat.toPosition();
+            final point = event.lngLat.toGeographic();
             widget.onEvent?.call(MapEventSecondaryClick(point: point));
           }.toJS,
         );
@@ -131,7 +131,7 @@ final class MapLibreMapStateWeb extends MapLibreMapState {
           interop.MapEventType.move,
           (interop.MapLibreEvent event) {
             final mapCamera = MapCamera(
-              center: _map.getCenter().toPosition(),
+              center: _map.getCenter().toGeographic(),
               zoom: _map.getZoom().toDouble(),
               pitch: _map.getPitch().toDouble(),
               bearing: _map.getBearing().toDouble(),
@@ -202,42 +202,42 @@ final class MapLibreMapStateWeb extends MapLibreMapState {
   }
 
   @override
-  Position toLngLatSync(Offset screenLocation) =>
-      _map.unproject(screenLocation.toJsPoint()).toPosition();
+  Geographic toLngLatSync(Offset screenLocation) =>
+      _map.unproject(screenLocation.toJsPoint()).toGeographic();
 
   @override
-  List<Position> toLngLatsSync(List<Offset> screenLocations) => screenLocations
-      .map((offset) => _map.unproject(offset.toJsPoint()).toPosition())
+  List<Geographic> toLngLatsSync(List<Offset> screenLocations) => screenLocations
+      .map((offset) => _map.unproject(offset.toJsPoint()).toGeographic())
       .toList(growable: false);
 
   @override
-  Offset toScreenLocationSync(Position lngLat) =>
+  Offset toScreenLocationSync(Geographic lngLat) =>
       _map.project(lngLat.toLngLat()).toOffset();
 
   @override
-  List<Offset> toScreenLocationsSync(List<Position> lngLats) => lngLats
+  List<Offset> toScreenLocationsSync(List<Geographic> lngLats) => lngLats
       .map((lngLat) => _map.project(lngLat.toLngLat()).toOffset())
       .toList(growable: false);
 
   @override
-  Future<Position> toLngLat(Offset screenLocation) async =>
+  Future<Geographic> toLngLat(Offset screenLocation) async =>
       toLngLatSync(screenLocation);
 
   @override
-  Future<Offset> toScreenLocation(Position lngLat) async =>
+  Future<Offset> toScreenLocation(Geographic lngLat) async =>
       toScreenLocationSync(lngLat);
 
   @override
-  Future<List<Position>> toLngLats(List<Offset> screenLocations) async =>
+  Future<List<Geographic>> toLngLats(List<Offset> screenLocations) async =>
       toLngLatsSync(screenLocations);
 
   @override
-  Future<List<Offset>> toScreenLocations(List<Position> lngLats) async =>
+  Future<List<Offset>> toScreenLocations(List<Geographic> lngLats) async =>
       toScreenLocationsSync(lngLats);
 
   @override
   Future<void> moveCamera({
-    Position? center,
+    Geographic? center,
     double? zoom,
     double? bearing,
     double? pitch,
@@ -255,7 +255,7 @@ final class MapLibreMapStateWeb extends MapLibreMapState {
 
   @override
   Future<void> animateCamera({
-    Position? center,
+    Geographic? center,
     double? zoom,
     double? bearing,
     double? pitch,
@@ -330,7 +330,7 @@ final class MapLibreMapStateWeb extends MapLibreMapState {
 
   @override
   MapCamera getCamera() => MapCamera(
-        center: _map.getCenter().toPosition(),
+        center: _map.getCenter().toGeographic(),
         zoom: _map.getZoom().toDouble(),
         pitch: _map.getPitch().toDouble(),
         bearing: _map.getBearing().toDouble(),

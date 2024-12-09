@@ -24,7 +24,7 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
-  geotypes: ^0.0.2
+  geobase: ^1.4.0+1
   html: ^0.15.4
   jni: ^0.12.0
   pointer_interceptor: ^0.10.1+2

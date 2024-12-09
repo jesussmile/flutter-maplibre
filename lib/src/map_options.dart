@@ -53,7 +53,7 @@ class MapOptions {
   final double initBearing;
 
   /// The initial center on the map.
-  final Position? initCenter;
+  final Geographic? initCenter;
 
   /// The minimum zoom level. Allowed values are 0-24. Defaults to 0.
   final double minZoom;

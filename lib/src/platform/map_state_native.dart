@@ -38,8 +38,8 @@ abstract class MapLibreMapStateNative extends MapLibreMapState
         center: options.initCenter == null
             ? null
             : pigeon.LngLat(
-                lng: options.initCenter!.lng.toDouble(),
-                lat: options.initCenter!.lat.toDouble(),
+                lng: options.initCenter!.lon,
+                lat: options.initCenter!.lat,
               ),
         minZoom: options.minZoom,
         maxZoom: options.maxZoom,
@@ -58,7 +58,7 @@ abstract class MapLibreMapStateNative extends MapLibreMapState
   @override
   void onMoveCamera(pigeon.MapCamera camera) {
     final mapCamera = MapCamera(
-      center: camera.center.toPosition(),
+      center: camera.center.toGeographic(),
       zoom: camera.zoom,
       pitch: camera.pitch,
       bearing: camera.bearing,
@@ -86,25 +86,25 @@ abstract class MapLibreMapStateNative extends MapLibreMapState
 
   @override
   void onDoubleClick(pigeon.LngLat point) {
-    final position = point.toPosition();
+    final position = point.toGeographic();
     widget.onEvent?.call(MapEventClick(point: position));
   }
 
   @override
   void onSecondaryClick(pigeon.LngLat point) {
-    final position = point.toPosition();
+    final position = point.toGeographic();
     widget.onEvent?.call(MapEventClick(point: position));
   }
 
   @override
   void onClick(pigeon.LngLat point) {
-    final position = point.toPosition();
+    final position = point.toGeographic();
     widget.onEvent?.call(MapEventClick(point: position));
   }
 
   @override
   void onLongClick(pigeon.LngLat point) {
-    final position = point.toPosition();
+    final position = point.toGeographic();
     widget.onEvent?.call(MapEventLongClick(point: position));
   }
 

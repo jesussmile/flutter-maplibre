@@ -16,7 +16,7 @@ class MapCamera {
   });
 
   /// The position of the map center.
-  final Position center;
+  final Geographic center;
 
   /// The zoom level of the map.
   final double zoom;
@@ -40,7 +40,7 @@ class MapCamera {
 
   @override
   String toString() => 'MapCamera('
-      'center: Position(lng: ${center.lng}, lat: ${center.lat}), '
+      'center: Position(lng: ${center.lon}, lat: ${center.lat}), '
       'zoom: $zoom, bearing: $bearing, pitch: $pitch)';
 
   @override

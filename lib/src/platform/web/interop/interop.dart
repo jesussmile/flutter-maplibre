@@ -11,8 +11,8 @@ part 'events.dart';
 part 'gesture_handlers.dart';
 part 'map.dart';
 part 'map_geojson_feature.dart';
-part 'style_specification.dart';
 part 'marker.dart';
+part 'style_specification.dart';
 
 /// A simple x/y [Point] class for JavaScript.
 @anonymous
@@ -36,13 +36,16 @@ extension type LngLat._(JSObject _) implements JSObject {
   });
 
   /// Create a new JS [LngLat] object from a [Position].
-  factory LngLat.fromPosition(Position p) => LngLat(lng: p.lng, lat: p.lat);
+  factory LngLat.fromGeographic(Geographic p) => LngLat(lng: p.lon, lat: p.lat);
 
   external num lng;
   external num lat;
 
   /// Convert the JS [LngLat] object to a dart [Position] object.
-  Position toPosition() => Position(lng, lat);
+  Geographic toGeographic() => Geographic(
+        lon: lng.toDouble(),
+        lat: lat.toDouble(),
+      );
 }
 
 /// A [LngLatBounds] object represents a geographical bounding box,

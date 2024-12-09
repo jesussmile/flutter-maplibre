@@ -178,17 +178,17 @@ final class MapLibreMapStateAndroid extends MapLibreMapStateNative {
   }
 
   @override
-  Future<Position> toLngLat(Offset screenLocation) async {
+  Future<Geographic> toLngLat(Offset screenLocation) async {
     final jniProjection = _jniProjection;
-    return runOnPlatformThread<Position>(() {
+    return runOnPlatformThread<Geographic>(() {
       return jniProjection
           .fromScreenLocation(screenLocation.toPointF())
-          .toPosition(releaseOriginal: true);
+          .toGeographic(releaseOriginal: true);
     });
   }
 
   @override
-  Future<Offset> toScreenLocation(Position lngLat) async {
+  Future<Offset> toScreenLocation(Geographic lngLat) async {
     final jniProjection = _jniProjection;
     return runOnPlatformThread<Offset>(() {
       return jniProjection
@@ -198,19 +198,19 @@ final class MapLibreMapStateAndroid extends MapLibreMapStateNative {
   }
 
   @override
-  Future<List<Position>> toLngLats(List<Offset> screenLocations) async {
+  Future<List<Geographic>> toLngLats(List<Offset> screenLocations) async {
     final jniProjection = _jniProjection;
-    return runOnPlatformThread<List<Position>>(() {
+    return runOnPlatformThread<List<Geographic>>(() {
       return screenLocations.map((screenLocation) {
         return jniProjection
             .fromScreenLocation(screenLocation.toPointF())
-            .toPosition(releaseOriginal: true);
+            .toGeographic(releaseOriginal: true);
       }).toList(growable: false);
     });
   }
 
   @override
-  Future<List<Offset>> toScreenLocations(List<Position> lngLats) async {
+  Future<List<Offset>> toScreenLocations(List<Geographic> lngLats) async {
     final jniProjection = _jniProjection;
     return runOnPlatformThread<List<Offset>>(() {
       return lngLats.map((lngLat) {
@@ -223,7 +223,7 @@ final class MapLibreMapStateAndroid extends MapLibreMapStateNative {
 
   @override
   Future<void> moveCamera({
-    Position? center,
+    Geographic? center,
     double? zoom,
     double? bearing,
     double? pitch,
@@ -263,7 +263,7 @@ final class MapLibreMapStateAndroid extends MapLibreMapStateNative {
 
   @override
   Future<void> animateCamera({
-    Position? center,
+    Geographic? center,
     double? zoom,
     double? bearing,
     double? pitch,
@@ -377,13 +377,12 @@ final class MapLibreMapStateAndroid extends MapLibreMapStateNative {
     final jniCamera = _jniMapLibreMap.getCameraPosition();
     final jniTarget = jniCamera.target;
     final mapCamera = MapCamera(
-      center: Position(jniTarget.getLongitude(), jniTarget.getLatitude()),
+      center: jniTarget.toGeographic(releaseOriginal: true),
       zoom: jniCamera.zoom,
       pitch: jniCamera.tilt,
       bearing: jniCamera.bearing,
     );
     // camera = mapCamera;
-    jniTarget.release();
     jniCamera.release();
     return mapCamera;
   }
