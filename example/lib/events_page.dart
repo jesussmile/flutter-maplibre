@@ -21,7 +21,8 @@ class _EventsPageState extends State<EventsPage> {
       body: Stack(
         children: [
           MapLibreMap(
-            options: MapOptions(initCenter: Geographic(lon: 9.17, lat: 47.68)),
+            options:
+                const MapOptions(initCenter: Geographic(lon: 9.17, lat: 47.68)),
             onEvent: _onEvent,
           ),
           IgnorePointer(

@@ -11,7 +11,7 @@ class MockPermissionManager extends Mock implements PermissionManager {}
 void main() {
   group('MapControlButtons', () {
     testWidgets('render', (tester) async {
-      final camera = MapCamera(
+      const camera = MapCamera(
         center: Geographic(lon: 0, lat: 0),
         zoom: 5,
         bearing: 12,

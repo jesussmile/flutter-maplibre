@@ -9,7 +9,7 @@ import '../shared/ui_app.dart';
 void main() {
   group('MapScalebar', () {
     testWidgets('render', (tester) async {
-      final camera = MapCamera(
+      const camera = MapCamera(
         center: Geographic(lon: 0, lat: 0),
         zoom: 5,
         bearing: 12,
@@ -58,7 +58,7 @@ void main() {
       expect(size.height, equals(22));
     });
     testWidgets('render 2', (tester) async {
-      final camera = MapCamera(
+      const camera = MapCamera(
         center: Geographic(lon: 0, lat: 0),
         zoom: 5,
         bearing: 12,

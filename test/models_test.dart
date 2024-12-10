@@ -61,13 +61,13 @@ void main() {
       expect(oString, contains(o.longitudeWest.toString()));
     });
     test('MapCamera', () {
-      final o = MapCamera(
+      const o = MapCamera(
         pitch: 12,
         zoom: 2,
         bearing: 213,
         center: Geographic(lon: 12, lat: 2),
       );
-      final o2 = MapCamera(
+      const o2 = MapCamera(
         pitch: 0,
         zoom: 0,
         bearing: 0,

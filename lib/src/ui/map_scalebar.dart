@@ -31,7 +31,7 @@ class MapScalebar extends StatelessWidget {
     final camera = MapCamera.maybeOf(context);
     if (controller == null || camera == null) return const SizedBox.shrink();
 
-    final latitude = camera.center.lat.toDouble();
+    final latitude = camera.center.lat;
     final theme = Theme.of(context);
 
     Widget buildChild(double metersPerPixel) {

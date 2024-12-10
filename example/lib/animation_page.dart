@@ -25,7 +25,7 @@ class _AnimationPageState extends State<AnimationPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Animation')),
       body: MapLibreMap(
-        options: MapOptions(
+        options: const MapOptions(
           initZoom: 14,
           initCenter: Geographic(lon: -122.01971, lat: 45.632472),
         ),

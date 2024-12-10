@@ -22,7 +22,8 @@ class _StyleLayersHeatmapPageState extends State<StyleLayersHeatmapPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Heatmap Style Layer')),
       body: MapLibreMap(
-        options: MapOptions(initCenter: Geographic(lon: -120, lat: 50), initZoom: 2),
+        options: const MapOptions(
+            initCenter: Geographic(lon: -120, lat: 50), initZoom: 2),
         onStyleLoaded: _onStyleLoaded,
       ),
     );

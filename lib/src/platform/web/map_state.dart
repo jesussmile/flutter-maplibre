@@ -206,9 +206,10 @@ final class MapLibreMapStateWeb extends MapLibreMapState {
       _map.unproject(screenLocation.toJsPoint()).toGeographic();
 
   @override
-  List<Geographic> toLngLatsSync(List<Offset> screenLocations) => screenLocations
-      .map((offset) => _map.unproject(offset.toJsPoint()).toGeographic())
-      .toList(growable: false);
+  List<Geographic> toLngLatsSync(List<Offset> screenLocations) =>
+      screenLocations
+          .map((offset) => _map.unproject(offset.toJsPoint()).toGeographic())
+          .toList(growable: false);
 
   @override
   Offset toScreenLocationSync(Geographic lngLat) =>

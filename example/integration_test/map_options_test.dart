@@ -11,7 +11,7 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   group('MapOptions', () {
     testWidgets('get from map', (tester) async {
-      final options = MapOptions(
+      const options = MapOptions(
         minZoom: 1,
         maxZoom: 2,
         initZoom: 1,

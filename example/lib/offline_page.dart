@@ -89,7 +89,7 @@ class _OfflinePageState extends State<OfflinePage> {
                                       title: 'World',
                                       bounds: _boundsWorld,
                                       zoom: 1,
-                                      center: Geographic(lon: 0, lat: 0),
+                                      center: const Geographic(lon: 0, lat: 0),
                                       maxZoom: 2,
                                     ),
                                   ),
@@ -151,7 +151,10 @@ class _OfflinePageState extends State<OfflinePage> {
                                       title: 'Bregenz',
                                       bounds: _boundsBregenz,
                                       zoom: 12,
-                                      center: Geographic(lon: 9.717795, lat: 47.504100),
+                                      center: const Geographic(
+                                        lon: 9.717795,
+                                        lat: 47.504100,
+                                      ),
                                     ),
                                   ),
                                 );
@@ -346,12 +349,27 @@ class _OfflineMapPage extends StatelessWidget {
             width: 3,
             polylines: [
               LineString(
-                 [
-                  Geographic(lon: bounds.longitudeWest, lat: bounds.latitudeSouth),
-                  Geographic(lon: bounds.longitudeWest, lat: bounds.latitudeNorth),
-                  Geographic(lon: bounds.longitudeEast, lat: bounds.latitudeNorth),
-                  Geographic(lon: bounds.longitudeEast, lat: bounds.latitudeSouth),
-                  Geographic(lon: bounds.longitudeWest, lat: bounds.latitudeSouth),
+                [
+                  Geographic(
+                    lon: bounds.longitudeWest,
+                    lat: bounds.latitudeSouth,
+                  ),
+                  Geographic(
+                    lon: bounds.longitudeWest,
+                    lat: bounds.latitudeNorth,
+                  ),
+                  Geographic(
+                    lon: bounds.longitudeEast,
+                    lat: bounds.latitudeNorth,
+                  ),
+                  Geographic(
+                    lon: bounds.longitudeEast,
+                    lat: bounds.latitudeSouth,
+                  ),
+                  Geographic(
+                    lon: bounds.longitudeWest,
+                    lat: bounds.latitudeSouth,
+                  ),
                 ],
               ),
             ],

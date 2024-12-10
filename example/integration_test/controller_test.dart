@@ -18,14 +18,14 @@ void main() {
       final events = <MapEvent>[];
       final app = App(
         onMapCreated: ctrlCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 1, lat: 2)),
+        options: const MapOptions(initCenter: Geographic(lon: 1, lat: 2)),
         onEvent: events.add,
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
       events.clear();
       await ctrl.moveCamera(
-        center: Geographic(lon: 1, lat: 1),
+        center: const Geographic(lon: 1, lat: 1),
         bearing: 1,
         zoom: 1,
         pitch: 1,
@@ -48,11 +48,12 @@ void main() {
       final ctrlCompleter = Completer<MapController>();
       final app = App(
         onMapCreated: ctrlCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 1, lat: 2)),
+        options: const MapOptions(initCenter: Geographic(lon: 1, lat: 2)),
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
-      final offset = await ctrl.toScreenLocation(Geographic(lon: 1, lat: 2));
+      final offset =
+          await ctrl.toScreenLocation(const Geographic(lon: 1, lat: 2));
       // Different devices have different screen sizes.
       expect(offset.dx, greaterThanOrEqualTo(0));
       expect(offset.dy, greaterThanOrEqualTo(0));
@@ -62,13 +63,13 @@ void main() {
       final ctrlCompleter = Completer<MapController>();
       final app = App(
         onMapCreated: ctrlCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 1, lat: 2)),
+        options: const MapOptions(initCenter: Geographic(lon: 1, lat: 2)),
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
       final offsets = await ctrl.toScreenLocations([
-        Geographic(lon: 1, lat: 2),
-        Geographic(lon: 43.5, lat: -23),
+        const Geographic(lon: 1, lat: 2),
+        const Geographic(lon: 43.5, lat: -23),
       ]);
       // Different devices have different screen sizes.
       expect(offsets[0].dx, greaterThanOrEqualTo(0));
@@ -81,7 +82,7 @@ void main() {
       final ctrlCompleter = Completer<MapController>();
       final app = App(
         onMapCreated: ctrlCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 1, lat: 2)),
+        options: const MapOptions(initCenter: Geographic(lon: 1, lat: 2)),
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
@@ -95,7 +96,7 @@ void main() {
       final ctrlCompleter = Completer<MapController>();
       final app = App(
         onMapCreated: ctrlCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 1,lat:  2)),
+        options: const MapOptions(initCenter: Geographic(lon: 1, lat: 2)),
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
@@ -114,7 +115,10 @@ void main() {
       final ctrlCompleter = Completer<MapController>();
       final app = App(
         onMapCreated: ctrlCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 1, lat: 2), initZoom: 10),
+        options: const MapOptions(
+          initCenter: Geographic(lon: 1, lat: 2),
+          initZoom: 10,
+        ),
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
@@ -126,7 +130,10 @@ void main() {
       final ctrlCompleter = Completer<MapController>();
       final app = App(
         onMapCreated: ctrlCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 0, lat: 0), initZoom: 10),
+        options: const MapOptions(
+          initCenter: Geographic(lon: 0, lat: 0),
+          initZoom: 10,
+        ),
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
@@ -147,7 +154,10 @@ void main() {
       final ctrlCompleter = Completer<MapController>();
       final app = App(
         onMapCreated: ctrlCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 0,lat:  0), initZoom: 10),
+        options: const MapOptions(
+          initCenter: Geographic(lon: 0, lat: 0),
+          initZoom: 10,
+        ),
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
@@ -163,7 +173,10 @@ void main() {
       final ctrlCompleter = Completer<MapController>();
       final app = App(
         onMapCreated: ctrlCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 0, lat: 0), initZoom: 10),
+        options: const MapOptions(
+          initCenter: Geographic(lon: 0, lat: 0),
+          initZoom: 10,
+        ),
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
@@ -180,7 +193,10 @@ void main() {
       final ctrlCompleter = Completer<MapController>();
       final app = App(
         onMapCreated: ctrlCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 0, lat: 0), initZoom: 10),
+        options: const MapOptions(
+          initCenter: Geographic(lon: 0, lat: 0),
+          initZoom: 10,
+        ),
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
@@ -190,7 +206,7 @@ void main() {
       await ctrl.style?.updateGeoJsonSource(
         id: source.id,
         data: jsonEncode(
-          GeometryCollection([Point(Geographic(lon: 0, lat: 0))])
+          GeometryCollection(const [Point(Geographic(lon: 0, lat: 0))])
               .toJson(),
         ),
       );
@@ -202,7 +218,10 @@ void main() {
       final app = App(
         onMapCreated: ctrlCompleter.complete,
         onStyleLoaded: styleCompleter.complete,
-        options: MapOptions(initCenter: Geographic(lon: 0, lat: 0), initZoom: 10),
+        options: const MapOptions(
+          initCenter: Geographic(lon: 0, lat: 0),
+          initZoom: 10,
+        ),
       );
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
@@ -222,7 +241,7 @@ void main() {
       final app = App(
         onMapCreated: ctrlCompleter.complete,
         onStyleLoaded: styleCompleter.complete,
-        options: MapOptions(
+        options: const MapOptions(
           initCenter: Geographic(lon: 0, lat: 0),
           initZoom: 10,
           initStyle: StyledMapPage.styleUrl,
@@ -242,7 +261,7 @@ void main() {
       await tester.pumpWidget(app);
       final ctrl = await ctrlCompleter.future;
       await ctrl.moveCamera(
-        center: Geographic(lon: 1, lat: 2),
+        center: const Geographic(lon: 1, lat: 2),
         bearing: 1,
         zoom: 1,
         pitch: 1,
@@ -262,7 +281,7 @@ void main() {
     final app = App(onMapCreated: ctrlCompleter.complete);
     await tester.pumpWidget(app);
     final ctrl = await ctrlCompleter.future;
-    final source = ImageSource(
+    const source = ImageSource(
       id: '1',
       url:
           'https://raw.githubusercontent.com/josxha/flutter-maplibre/57396548693857a80083303f56aa83b4901dad48/docs/static/img/favicon-32x32.png',
@@ -281,7 +300,7 @@ void main() {
       id: '1',
       data: jsonEncode(
         GeometryCollection(
-          [Point(Geographic(lon: 12, lat: 2))],
+          const [Point(Geographic(lon: 12, lat: 2))],
         ).toJson(),
       ),
     );
@@ -295,7 +314,7 @@ void main() {
     final app = App(onMapCreated: ctrlCompleter.complete);
     await tester.pumpWidget(app);
     final ctrl = await ctrlCompleter.future;
-    final source = VideoSource(
+    const source = VideoSource(
       id: '1',
       coordinates: [Geographic(lon: 0, lat: 0), Geographic(lon: 10, lat: 10)],
       urls: [

@@ -13,8 +13,8 @@ class LayersPolygonPage extends StatefulWidget {
 
 class _LayersPolygonPageState extends State<LayersPolygonPage> {
   final _polygons = <Polygon>[
-    Polygon(
-       [
+    const Polygon(
+      [
         [
           Geographic(lon: 8.201306116882563, lat: 48.107357488669464),
           Geographic(lon: 8.885254895692924, lat: 48.09428546381665),
@@ -32,7 +32,10 @@ class _LayersPolygonPageState extends State<LayersPolygonPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Polygon Layers')),
       body: MapLibreMap(
-        options: MapOptions(initZoom: 7, initCenter: Geographic(lon: 9.17, lat: 47.68)),
+        options: const MapOptions(
+          initZoom: 7,
+          initCenter: Geographic(lon: 9.17, lat: 47.68),
+        ),
         onEvent: (event) {
           if (event case MapEventClick()) {
             setState(() {

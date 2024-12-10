@@ -9,7 +9,7 @@ import 'shared/mocks.dart';
 void main() {
   group('WidgetLayer', () {
     testWidgets('one marker', (tester) async {
-      final camera = MapCamera(
+      const camera = MapCamera(
         center: Geographic(lon: 0, lat: 0),
         zoom: 0,
         bearing: 180,
@@ -21,17 +21,17 @@ void main() {
       when(() => controller.toScreenLocations(any()))
           .thenAnswer((_) async => offsets);
       when(() => controller.toScreenLocationsSync(any())).thenReturn(offsets);
-      final marker = Marker(
-        point: Geographic(lon: 0,lat:  0),
-        size: const Size.square(50),
-        child: const Icon(Icons.location_on, size: 50),
+      const marker = Marker(
+        point: Geographic(lon: 0, lat: 0),
+        size: Size.square(50),
+        child: Icon(Icons.location_on, size: 50),
         alignment: Alignment.bottomCenter,
         rotate: true,
       );
       final app = App(
         camera: camera,
         controller: controller,
-        children: [
+        children: const [
           WidgetLayer(markers: [marker]),
         ],
       );
@@ -53,8 +53,8 @@ void main() {
     });
 
     testWidgets('multiple markers', (tester) async {
-      final camera = MapCamera(
-        center: Geographic(lon: 0,lat:  0),
+      const camera = MapCamera(
+        center: Geographic(lon: 0, lat: 0),
         zoom: 0,
         bearing: 180,
         pitch: 0,
@@ -67,23 +67,23 @@ void main() {
       when(() => controller.toScreenLocationsSync(any())).thenReturn(offsets);
       const size = 50.0;
       final markers = [
-        Marker(
+        const Marker(
           point: Geographic(lon: 1, lat: 1),
-          size: const Size.square(size),
+          size: Size.square(size),
           alignment: Alignment.topLeft,
-          child: const Icon(Icons.circle, size: size),
+          child: Icon(Icons.circle, size: size),
         ),
-        Marker(
+        const Marker(
           point: Geographic(lon: 2, lat: 1),
-          size: const Size.square(size),
+          size: Size.square(size),
           alignment: Alignment.topLeft,
-          child: const Icon(Icons.square, size: size),
+          child: Icon(Icons.square, size: size),
         ),
-        Marker(
+        const Marker(
           point: Geographic(lon: 3, lat: 1),
-          size: const Size.square(size),
+          size: Size.square(size),
           alignment: Alignment.topLeft,
-          child: const Icon(Icons.emoji_emotions, size: size),
+          child: Icon(Icons.emoji_emotions, size: size),
         ),
       ];
       final app = App(

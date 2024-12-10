@@ -43,7 +43,7 @@ class _GesturesPageState extends State<GesturesPage> {
           Expanded(
             child: MapLibreMap(
               options: MapOptions(
-                initCenter: Geographic(lon: 9.17, lat: 47.68),
+                initCenter: const Geographic(lon: 9.17, lat: 47.68),
                 initZoom: 3,
                 gestures: MapGestures(
                   rotate: _selections[Gestures.rotate]!,

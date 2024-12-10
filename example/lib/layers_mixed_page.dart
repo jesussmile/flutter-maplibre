@@ -16,10 +16,10 @@ class LayersMixedPage extends StatefulWidget {
 class _LayersMixedPageState extends State<LayersMixedPage> {
   final _random = Random.secure();
   final _circlePoints = <Point>[
-    Point(Geographic(lon: 9.17, lat: 47.68)),
-    Point(Geographic(lon: 9.17, lat: 48)),
-    Point(Geographic(lon: 9, lat: 48)),
-    Point(Geographic(lon: 9.5, lat: 48)),
+    const Point(Geographic(lon: 9.17, lat: 47.68)),
+    const Point(Geographic(lon: 9.17, lat: 48)),
+    const Point(Geographic(lon: 9, lat: 48)),
+    const Point(Geographic(lon: 9.5, lat: 48)),
   ];
   Color _circleColor = Colors.orange.withOpacity(0.5);
   PolylineLayer? _polylineLayer;
@@ -56,7 +56,7 @@ class _LayersMixedPageState extends State<LayersMixedPage> {
                         _polylineLayer = PolylineLayer(
                           polylines: [
                             LineString(
-                              [
+                              const [
                                 Geographic(lon: 9.17, lat: 47.68),
                                 Geographic(lon: 9.5, lat: 48),
                                 Geographic(lon: 9, lat: 48),
@@ -79,8 +79,10 @@ class _LayersMixedPageState extends State<LayersMixedPage> {
           ),
           Expanded(
             child: MapLibreMap(
-              options:
-                  MapOptions(initZoom: 7, initCenter: Geographic(lon: 9.17, lat: 47.68)),
+              options: const MapOptions(
+                initZoom: 7,
+                initCenter: Geographic(lon: 9.17, lat: 47.68),
+              ),
               onEvent: (event) {
                 if (event case MapEventClick()) {
                   setState(() {

@@ -15,10 +15,10 @@ class LayersMarkerPage extends StatefulWidget {
 
 class _LayersMarkerPageState extends State<LayersMarkerPage> {
   final _points = <Point>[
-    Point(Geographic(lon: 9.17, lat: 47.68)),
-    Point(Geographic(lon: 9.17, lat: 48)),
-    Point(Geographic(lon: 9, lat: 48)),
-    Point(Geographic(lon: 9.5, lat: 48)),
+    const Point(Geographic(lon: 9.17, lat: 47.68)),
+    const Point(Geographic(lon: 9.17, lat: 48)),
+    const Point(Geographic(lon: 9, lat: 48)),
+    const Point(Geographic(lon: 9.5, lat: 48)),
   ];
 
   bool _imageLoaded = false;
@@ -28,7 +28,10 @@ class _LayersMarkerPageState extends State<LayersMarkerPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Marker Layers')),
       body: MapLibreMap(
-        options: MapOptions(initZoom: 7, initCenter: Geographic(lon: 9.17, lat: 47.68)),
+        options: const MapOptions(
+          initZoom: 7,
+          initCenter: Geographic(lon: 9.17, lat: 47.68),
+        ),
         onEvent: (event) async {
           switch (event) {
             case MapEventStyleLoaded():

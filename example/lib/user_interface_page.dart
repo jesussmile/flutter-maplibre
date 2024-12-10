@@ -20,7 +20,7 @@ class _UserInterfacePageState extends State<UserInterfacePage> {
       body: MapLibreMap(
         options: MapOptions(
           initZoom: 3,
-          initCenter: Geographic(lon: 9.17, lat: 47.68),
+          initCenter: const Geographic(lon: 9.17, lat: 47.68),
           initStyle: Theme.of(context).brightness == Brightness.light
               ? StyledMapPage.styleUrl
               : StyledMapPage.styleUrlDark,

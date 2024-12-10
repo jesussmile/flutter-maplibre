@@ -13,7 +13,7 @@ void main() {
 
   group('MapCompass', () {
     testWidgets('check rotation', (tester) async {
-      final camera = MapCamera(
+      const camera = MapCamera(
         center: Geographic(lon: 0, lat: 0),
         zoom: 0,
         bearing: 12,
@@ -33,7 +33,7 @@ void main() {
     });
 
     testWidgets('reset rotation', (tester) async {
-      final camera = MapCamera(
+      const camera = MapCamera(
         center: Geographic(lon: 0, lat: 0),
         zoom: 0,
         bearing: 100,

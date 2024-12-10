@@ -11,7 +11,7 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   group('MapCamera', () {
     testWidgets('get from map', (tester) async {
-      final options = MapOptions(
+      const options = MapOptions(
         minZoom: 1,
         maxZoom: 2,
         initZoom: 1,
@@ -30,7 +30,7 @@ void main() {
       final camera = ctrl.camera;
       expect(camera, isNot(isNull));
       expect(camera!.zoom, equals(1));
-      expect(camera.center, equals(Geographic(lon: 1, lat: 2)));
+      expect(camera.center, equals(const Geographic(lon: 1, lat: 2)));
     });
   });
 }
