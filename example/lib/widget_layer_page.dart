@@ -19,7 +19,7 @@ class _WidgetLayerPageState extends State<WidgetLayerPage> {
       body: MapLibreMap(
         options: MapOptions(
           initZoom: 3,
-          initCenter: Position(0, 0),
+          initCenter: Geographic(lon: 0, lat: 0),
         ),
         children: [
           WidgetLayer(
@@ -27,14 +27,14 @@ class _WidgetLayerPageState extends State<WidgetLayerPage> {
               // A 3D marker
               Marker(
                 size: const Size.square(50),
-                point: Position(-10, 0),
+                point: Geographic(lon: -10, lat: 0),
                 child:
                     const Icon(Icons.location_on, color: Colors.red, size: 50),
                 alignment: Alignment.bottomCenter,
               ),
               Marker(
                 size: const Size.square(50),
-                point: Position(-5, 0),
+                point: Geographic(lon: -5, lat: 0),
                 child:
                     const Icon(Icons.location_on, color: Colors.red, size: 50),
                 alignment: Alignment.bottomCenter,
@@ -42,7 +42,7 @@ class _WidgetLayerPageState extends State<WidgetLayerPage> {
               ),
               Marker(
                 size: const Size.square(50),
-                point: Position(0, 0),
+                point: Geographic(lon: 0, lat: 0),
                 child:
                     const Icon(Icons.location_on, color: Colors.red, size: 50),
                 alignment: Alignment.bottomCenter,
@@ -50,7 +50,7 @@ class _WidgetLayerPageState extends State<WidgetLayerPage> {
               ),
               Marker(
                 size: const Size.square(50),
-                point: Position(5, 0),
+                point: Geographic(lon: 5, lat: 0),
                 child:
                     const Icon(Icons.location_on, color: Colors.red, size: 50),
                 alignment: Alignment.bottomCenter,

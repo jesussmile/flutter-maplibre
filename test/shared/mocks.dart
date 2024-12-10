@@ -11,4 +11,4 @@ class MockMapOptions extends Mock implements MapOptions {}
 
 class MockDuration extends Mock implements Duration {}
 
-class MockPosition extends Mock implements Position {}
+class MockGeographic extends Mock implements Geographic {}

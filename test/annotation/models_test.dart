@@ -7,8 +7,8 @@ void main() {
     test('CircleAnnotationLayer', () {
       final o = CircleLayer(
         points: [
-          Point(coordinates: Position(0, 0)),
-          Point(coordinates: Position(12.4, -4)),
+          Point(Geographic(lon: 0, lat: 0)),
+          Point(Geographic(lon: 12.4, lat: -4)),
         ],
         color: Colors.purple,
         strokeWidth: 5,
@@ -34,8 +34,8 @@ void main() {
     test('MarkerAnnotationLayer', () {
       final o = MarkerLayer(
         points: [
-          Point(coordinates: Position(0, 0)),
-          Point(coordinates: Position(12.4, -4)),
+          Point(Geographic(lon: 0, lat: 0)),
+          Point(Geographic(lon: 12.4, lat: -4)),
         ],
         textColor: Colors.purple,
         textHaloColor: Colors.greenAccent,
@@ -69,9 +69,9 @@ void main() {
       final o = PolygonLayer(
         polygons: [
           Polygon(
-            coordinates: [
-              [Position(2, 23.4), Position(5.2, 32), Position(53, 2)],
-              [Position(2, 23.4), Position(5.2, 32), Position(53, 3)],
+             [
+              [Geographic(lon: 2, lat: 23.4), Geographic(lon: 5.2, lat: 32), Geographic(lon: 53, lat: 2)],
+              [Geographic(lon: 2, lat: 23.4), Geographic(lon: 5.2, lat: 32), Geographic(lon: 53, lat: 3)],
             ],
           ),
         ],
@@ -79,8 +79,8 @@ void main() {
       final o2 = PolygonLayer(
         polygons: [
           Polygon(
-            coordinates: [
-              [Position(2, 23.4), Position(5.2, 32), Position(53, 2)],
+             [
+              [Geographic(lon: 2, lat: 23.4), Geographic(lon: 5.2, lat: 32), Geographic(lon: 53, lat: 2)],
             ],
           ),
         ],
@@ -89,7 +89,7 @@ void main() {
         polygons: [
           Polygon(
             coordinates: [
-              [Position(2, 23.4), Position(5.2, 32), Position(53, 2)],
+              [Position(2, 23.4), Geographic(lon: 5.2, 32), Geographic(lon: 53, 2)],
             ],
           ),
         ],
@@ -111,9 +111,9 @@ void main() {
       final o = PolylineLayer(
         polylines: [
           LineString(
-            coordinates: [
-              Position(2, 23.4),
-              Position(5.2, 32),
+            [
+              Geographic(lon: 2, lat: 23.4),
+              Geographic(lon: 5.2, lat: 32),
             ],
           ),
         ],
@@ -121,10 +121,10 @@ void main() {
       final o2 = PolylineLayer(
         polylines: [
           LineString(
-            coordinates: [
-              Position(2, 23.4),
-              Position(5.2, 32),
-              Position(53, 2),
+             [
+              Geographic(lon: 2, lat: 23.4),
+              Geographic(lon: 5.2, lat: 32),
+              Geographic(lon: 53, lat: 2),
             ],
           ),
         ],
@@ -133,9 +133,9 @@ void main() {
         polylines: [
           LineString(
             coordinates: [
-              Position(2, 23.4),
-              Position(5.2, 32),
-              Position(53, 2),
+              Geographic(lon: 2, lat: 23.4),
+              Geographic(lon: 5.2, lat: 32),
+              Geographic(lon: 53, lat: 2),
             ],
           ),
         ],

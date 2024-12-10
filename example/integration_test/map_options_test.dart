@@ -15,7 +15,7 @@ void main() {
         minZoom: 1,
         maxZoom: 2,
         initZoom: 1,
-        initCenter: Position(1, 2),
+        initCenter: Geographic(lon: 1, lat: 2),
         initStyle: StyledMapPage.styleUrlDark,
       );
       final completer = Completer<MapController>();

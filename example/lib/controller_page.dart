@@ -32,7 +32,7 @@ class _ControllerPageState extends State<ControllerPage> {
                   onPressed: () async {
                     debugPrint('moveCamera start');
                     await _controller.moveCamera(
-                      center: Position(172.4714, -42.4862),
+                      center: Geographic(lon: 172.4714, lat: -42.4862),
                       zoom: 4,
                       pitch: 0,
                       bearing: 0,
@@ -49,7 +49,7 @@ class _ControllerPageState extends State<ControllerPage> {
                     debugPrint('animateTo start');
                     try {
                       await _controller.animateCamera(
-                        center: Position(-18.6874, 64.9445),
+                        center: Geographic(lon: -18.6874, lat: 64.9445),
                         zoom: 5,
                         bearing: -50,
                         pitch: 60,
@@ -102,7 +102,7 @@ class _ControllerPageState extends State<ControllerPage> {
                         builder: (context) => AlertDialog(
                           title: const Text('MapCenter'),
                           content: Text('''
-center.lng: ${camera.center.lng}
+center.lng: ${camera.center.lon}
 center.lat: ${camera.center.lat}
 zoom: ${camera.zoom}
 bearing: ${camera.bearing}
@@ -171,7 +171,7 @@ pitch: ${camera.pitch}'''),
                         ..showSnackBar(
                           SnackBar(
                             content: Text(
-                              'Position(${lngLat.lng}, ${lngLat.lat})',
+                              'Geographic(lon: ${lngLat.lon}, ${lngLat.lat})',
                             ),
                           ),
                         );
@@ -185,7 +185,7 @@ pitch: ${camera.pitch}'''),
                 OutlinedButton(
                   onPressed: () async {
                     final offset =
-                        await _controller.toScreenLocation(Position(0, 0));
+                        await _controller.toScreenLocation(Geographic(lon: 0,lat:  0));
                     if (context.mounted) {
                       ScaffoldMessenger.of(context)
                         ..hideCurrentSnackBar()
@@ -209,7 +209,7 @@ pitch: ${camera.pitch}'''),
           Expanded(
             child: MapLibreMap(
               options:
-                  MapOptions(initCenter: Position(9.17, 47.68), initZoom: 3),
+                  MapOptions(initCenter: Geographic(lon: 9.17, lat: 47.68), initZoom: 3),
               onMapCreated: (controller) => _controller = controller,
             ),
           ),

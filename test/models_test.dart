@@ -65,13 +65,13 @@ void main() {
         pitch: 12,
         zoom: 2,
         bearing: 213,
-        center: Position(12, 2),
+        center: Geographic(lon: 12, lat: 2),
       );
       final o2 = MapCamera(
         pitch: 0,
         zoom: 0,
         bearing: 0,
-        center: Position(0, 0),
+        center: Geographic(lon: 0, lat: 0),
       );
       expect(o, equals(o));
       expect(o2, equals(o2));
@@ -80,7 +80,7 @@ void main() {
       final oString = o.toString();
       expect(
         oString,
-        contains('Position(lng: ${o.center.lng}, lat: ${o.center.lat})'),
+        contains('Geographic(lon: ${o.center.lon}, lat: ${o.center.lat})'),
       );
       expect(oString, contains(o.pitch.toString()));
       expect(oString, contains(o.bearing.toString()));
@@ -170,7 +170,7 @@ void main() {
     test('MapEvents', () {
       final controller = MockMapController();
       final camera = MockMapCamera();
-      final position = MockPosition();
+      final position = MockGeographic();
 
       final mapCreated = MapEventMapCreated(mapController: controller);
       expect(mapCreated, isA<MapEvent>());

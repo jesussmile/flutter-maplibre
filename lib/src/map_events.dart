@@ -74,8 +74,8 @@ sealed class MapEventUserInput extends MapEvent {
   /// Create a new [MapEventUserInput] object.
   const MapEventUserInput({required this.point});
 
-  /// The [Position] of where the user clicked at.
-  final Position point;
+  /// The [Geographic] of where the user clicked at.
+  final Geographic point;
 
   @override
   String toString() => 'MapEventUserInput(point: $point)';

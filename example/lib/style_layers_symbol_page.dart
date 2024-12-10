@@ -20,7 +20,7 @@ class _StyleLayersSymbolPageState extends State<StyleLayersSymbolPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Symbol Style Layer')),
       body: MapLibreMap(
-        options: MapOptions(initZoom: 3, initCenter: Position(9.17, 47.68)),
+        options: MapOptions(initZoom: 3, initCenter: Geographic(lon: 9.17, lat: 47.68)),
         onStyleLoaded: (style) async {
           // load the image data
           final response =

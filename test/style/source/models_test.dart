@@ -13,8 +13,8 @@ void main() {
       expect(o.hashCode, isNot(equals(o2.hashCode)));
     });
     test('ImageSource', () {
-      final o = ImageSource(id: '12', url: '', coordinates: [Position(2, 3)]);
-      final o2 = ImageSource(id: '13', url: '', coordinates: [Position(3, 3)]);
+      final o = ImageSource(id: '12', url: '', coordinates: [Geographic(lon: 2, lat: 3)]);
+      final o2 = ImageSource(id: '13', url: '', coordinates: [Geographic(lon: 3, lat: 3)]);
       expect(o, equals(o));
       expect(o2, equals(o2));
       expect(o, isNot(equals(o2)));
@@ -49,8 +49,8 @@ void main() {
       expect(o.hashCode, isNot(equals(o2.hashCode)));
     });
     test('VideoSource', () {
-      final o = VideoSource(id: '12', urls: [], coordinates: [Position(2, 3)]);
-      final o2 = VideoSource(id: '13', urls: [], coordinates: [Position(2, 3)]);
+      final o = VideoSource(id: '12', urls: [], coordinates: [Geographic(lon: 2, lat: 3)]);
+      final o2 = VideoSource(id: '13', urls: [], coordinates: [Geographic(lon: 2, lat: 3)]);
       expect(o, equals(o));
       expect(o2, equals(o2));
       expect(o, isNot(equals(o2)));

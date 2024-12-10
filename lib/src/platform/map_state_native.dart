@@ -109,11 +109,11 @@ abstract class MapLibreMapStateNative extends MapLibreMapState
   }
 
   @override
-  Position toLngLatSync(Offset screenLocation) =>
+  Geographic toLngLatSync(Offset screenLocation) =>
       throw UnimplementedError('toLngLatSync is only supported on web');
 
   @override
-  List<Position> toLngLatsSync(List<Offset> screenLocations) =>
+  List<Geographic> toLngLatsSync(List<Offset> screenLocations) =>
       throw UnimplementedError('toLngLatsSync is only supported on web');
 
   @override

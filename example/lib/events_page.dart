@@ -21,7 +21,7 @@ class _EventsPageState extends State<EventsPage> {
       body: Stack(
         children: [
           MapLibreMap(
-            options: MapOptions(initCenter: Position(9.17, 47.68)),
+            options: MapOptions(initCenter: Geographic(lon: 9.17, lat: 47.68)),
             onEvent: _onEvent,
           ),
           IgnorePointer(
@@ -43,20 +43,20 @@ class _EventsPageState extends State<EventsPage> {
         MapEventMapCreated() => _print('map created'),
         MapEventStyleLoaded() => _print('style loaded'),
         MapEventMoveCamera() => _print(
-            'move camera: center ${_formatPosition(event.camera.center)}, '
+            'move camera: center ${_formatGeographic(event.camera.center)}, '
             'zoom ${event.camera.zoom.toStringAsFixed(2)}, '
             'pitch ${event.camera.pitch.toStringAsFixed(2)}, '
             'bearing ${event.camera.bearing.toStringAsFixed(2)}',
           ),
         MapEventStartMoveCamera() =>
           _print('start move camera, reason: ${event.reason.name}'),
-        MapEventClick() => _print('clicked: ${_formatPosition(event.point)}'),
+        MapEventClick() => _print('clicked: ${_formatGeographic(event.point)}'),
         MapEventDoubleClick() =>
-          _print('double clicked: ${_formatPosition(event.point)}'),
+          _print('double clicked: ${_formatGeographic(event.point)}'),
         MapEventLongClick() =>
-          _print('long clicked: ${_formatPosition(event.point)}'),
+          _print('long clicked: ${_formatGeographic(event.point)}'),
         MapEventSecondaryClick() =>
-          _print('secondary clicked: ${_formatPosition(event.point)}'),
+          _print('secondary clicked: ${_formatGeographic(event.point)}'),
         MapEventIdle() => _print('idle'),
         MapEventCameraIdle() => _print('camera idle'),
       };
@@ -69,6 +69,6 @@ class _EventsPageState extends State<EventsPage> {
     });
   }
 
-  String _formatPosition(Position point) =>
-      '${point.lng.toStringAsFixed(3)}, ${point.lat.toStringAsFixed(3)}';
+  String _formatGeographic(Geographic point) =>
+      '${point.lon.toStringAsFixed(3)}, ${point.lat.toStringAsFixed(3)}';
 }

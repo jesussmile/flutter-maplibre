@@ -27,43 +27,43 @@ abstract interface class MapController {
 
   /// Convert a latitude/longitude coordinate to a screen location.
   // TODO: can be made sync when flutter platform and ui thread are merged
-  Future<Offset> toScreenLocation(Position lngLat);
+  Future<Offset> toScreenLocation(Geographic lngLat);
 
   /// Get the latitude/longitude coordinate for a screen location.
   // TODO: can be made sync when flutter platform and ui thread are merged
-  Future<Position> toLngLat(Offset screenLocation);
+  Future<Geographic> toLngLat(Offset screenLocation);
 
   /// Convert a latitude/longitude coordinate to a screen location.
   // TODO: can be made sync when flutter platform and ui thread are merged
-  Future<List<Offset>> toScreenLocations(List<Position> lngLats);
+  Future<List<Offset>> toScreenLocations(List<Geographic> lngLats);
 
   /// Get the latitude/longitude coordinate for a screen location.
   // TODO: can be made sync when flutter platform and ui thread are merged
-  Future<List<Position>> toLngLats(List<Offset> screenLocations);
-
-  /// Convert a latitude/longitude coordinate to a screen location.
-  ///
-  /// Only supported on web.
-  Offset toScreenLocationSync(Position lngLat);
-
-  /// Get the latitude/longitude coordinate for a screen location.
-  ///
-  /// Only supported on web.
-  Position toLngLatSync(Offset screenLocation);
+  Future<List<Geographic>> toLngLats(List<Offset> screenLocations);
 
   /// Convert a latitude/longitude coordinate to a screen location.
   ///
   /// Only supported on web.
-  List<Offset> toScreenLocationsSync(List<Position> lngLats);
+  Offset toScreenLocationSync(Geographic lngLat);
 
   /// Get the latitude/longitude coordinate for a screen location.
   ///
   /// Only supported on web.
-  List<Position> toLngLatsSync(List<Offset> screenLocations);
+  Geographic toLngLatSync(Offset screenLocation);
+
+  /// Convert a latitude/longitude coordinate to a screen location.
+  ///
+  /// Only supported on web.
+  List<Offset> toScreenLocationsSync(List<Geographic> lngLats);
+
+  /// Get the latitude/longitude coordinate for a screen location.
+  ///
+  /// Only supported on web.
+  List<Geographic> toLngLatsSync(List<Offset> screenLocations);
 
   /// Instantly move the map camera to a new location.
   Future<void> moveCamera({
-    Position? center,
+    Geographic? center,
     double? zoom,
     double? bearing,
     double? pitch,
@@ -71,7 +71,7 @@ abstract interface class MapController {
 
   /// Animate the map camera to a new location.
   Future<void> animateCamera({
-    Position? center,
+    Geographic? center,
     double? zoom,
     double? bearing,
     double? pitch,

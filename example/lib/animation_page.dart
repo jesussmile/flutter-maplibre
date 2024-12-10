@@ -27,7 +27,7 @@ class _AnimationPageState extends State<AnimationPage> {
       body: MapLibreMap(
         options: MapOptions(
           initZoom: 14,
-          initCenter: Position(-122.01971, 45.632472),
+          initCenter: Geographic(lon: -122.01971, lat: 45.632472),
         ),
         onStyleLoaded: _onStyleLoaded,
       ),
@@ -45,7 +45,7 @@ class _AnimationPageState extends State<AnimationPage> {
     final lineString = geojson.features.first.geometry! as LineString;
     // TODO: setting the id is currently required as geotypes would set it to null, Feature.id documented at https://datatracker.ietf.org/doc/html/rfc7946#section-3.2
     geojson.features.first.id = 1;
-    final allCoords = lineString.coordinates;
+    final allCoords = lineString.chain;
 
     // a LineString on MapLibre Native must have at least 2 Points
     lineString.coordinates = allCoords.sublist(0, 2);
