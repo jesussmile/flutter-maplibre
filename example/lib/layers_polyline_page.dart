@@ -13,7 +13,7 @@ class LayersPolylinePage extends StatefulWidget {
 
 class _LayersPolylinePageState extends State<LayersPolylinePage> {
   final _polylines = <LineString>[
-    LineString(
+    LineString.from(
       const [
         Geographic(lon: 9.17, lat: 47.68),
         Geographic(lon: 9.5, lat: 48),

@@ -13,8 +13,8 @@ class LayersPolygonPage extends StatefulWidget {
 
 class _LayersPolygonPageState extends State<LayersPolygonPage> {
   final _polygons = <Polygon>[
-    const Polygon(
-      [
+    Polygon.from(
+      const [
         [
           Geographic(lon: 8.201306116882563, lat: 48.107357488669464),
           Geographic(lon: 8.885254895692924, lat: 48.09428546381665),
@@ -39,7 +39,7 @@ class _LayersPolygonPageState extends State<LayersPolygonPage> {
         onEvent: (event) {
           if (event case MapEventClick()) {
             setState(() {
-              _polygons.first.coordinates.first.add(event.point);
+              _polygons.first.rings.first.add(event.point);
             });
           }
         },

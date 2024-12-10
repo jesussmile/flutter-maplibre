@@ -55,7 +55,7 @@ class _LayersMixedPageState extends State<LayersMixedPage> {
                       if (_polylineLayer == null) {
                         _polylineLayer = PolylineLayer(
                           polylines: [
-                            LineString(
+                            LineString.from(
                               const [
                                 Geographic(lon: 9.17, lat: 47.68),
                                 Geographic(lon: 9.5, lat: 48),

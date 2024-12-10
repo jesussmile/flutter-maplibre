@@ -75,7 +75,7 @@ class _AnimationPageState extends State<AnimationPage> {
       );
       debugPrint(
         '[$index] update line: '
-        '${allCoords[index].lng}, ${allCoords[index].lat}',
+        '${allCoords[index].lon}, ${allCoords[index].lat}',
       );
     });
   }

@@ -66,10 +66,10 @@ void main() {
       expect(o.getPaint(), isA<Map<String, Object>>());
     });
     test('PolygonAnnotationLayer', () {
-      const o = PolygonLayer(
+      final o = PolygonLayer(
         polygons: [
-          Polygon(
-            [
+          Polygon.from(
+            const [
               [
                 Geographic(lon: 2, lat: 23.4),
                 Geographic(lon: 5.2, lat: 32),
@@ -84,10 +84,10 @@ void main() {
           ),
         ],
       );
-      const o2 = PolygonLayer(
+      final o2 = PolygonLayer(
         polygons: [
-          Polygon(
-            [
+          Polygon.from(
+            const [
               [
                 Geographic(lon: 2, lat: 23.4),
                 Geographic(lon: 5.2, lat: 32),
@@ -122,7 +122,7 @@ void main() {
     test('PolylineAnnotationLayer', () {
       final o = PolylineLayer(
         polylines: [
-          LineString(
+          LineString.from(
             const [
               Geographic(lon: 2, lat: 23.4),
               Geographic(lon: 5.2, lat: 32),
@@ -132,7 +132,7 @@ void main() {
       );
       final o2 = PolylineLayer(
         polylines: [
-          LineString(
+          LineString.from(
             const [
               Geographic(lon: 2, lat: 23.4),
               Geographic(lon: 5.2, lat: 32),

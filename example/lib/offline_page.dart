@@ -348,7 +348,7 @@ class _OfflineMapPage extends StatelessWidget {
             color: Colors.red,
             width: 3,
             polylines: [
-              LineString(
+              LineString.from(
                 [
                   Geographic(
                     lon: bounds.longitudeWest,
